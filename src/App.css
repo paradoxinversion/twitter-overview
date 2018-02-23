@@ -1,0 +1,19 @@
+.App{
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet-display{
+  display: flex;
+  overflow: scroll;
+}
+
+.content-wrapper{
+  margin-left: 2rem;
+}
+
+.horizontal-rule {
+    border: 0;
+    height: 1px;
+    background: #333;
+}

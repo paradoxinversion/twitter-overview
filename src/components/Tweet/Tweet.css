@@ -1,0 +1,16 @@
+.tweet{
+  border: solid 1px black;
+  border-radius: 10px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: white;
+  margin-bottom: .5rem;
+  hyphens: auto;
+
+}
+
+.tweet-wrapper{
+  background: linear-gradient(#80808012, #fff);
+  margin-bottom: 1.5rem;
+  width: 30vw;
+}
