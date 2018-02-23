@@ -1,13 +1,10 @@
 
-import React from 'react';
-import './UserSearchBar.css';
+import React from "react";
+import "./UserSearchBar.css";
 
 class UserSearchBar extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      searchQuery: ""
-    }
   }
 
   render(){
@@ -20,9 +17,9 @@ class UserSearchBar extends React.Component {
       </div>
 
 
-    )
+    );
   }
 
-};
+}
 
 export default UserSearchBar;

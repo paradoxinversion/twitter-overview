@@ -1,5 +1,5 @@
-import React from 'react';
-import './Tweet.css';
+import React from "react";
+import "./Tweet.css";
 const Tweet = (props) => {
   let inReply;
   if (props.tweet.in_reply_to_user_id_str != null){
@@ -7,7 +7,7 @@ const Tweet = (props) => {
       <div>
         <p> In reply to <a href={`https://twitter.com/intent/user?user_id=${props.tweet.in_reply_to_user_id_str}`}>{props.tweet.in_reply_to_screen_name}.</a> </p>
       </div>
-    )
+    );
   }
   return (
     <div className="tweet-wrapper">

@@ -1,12 +1,12 @@
-import React from 'react';
-import Tweet from './Tweet';
-import './TweetList.css';
+import React from "react";
+import Tweet from "./Tweet";
+import "./TweetList.css";
 class TweetList extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       tweets: props.tweets
-    }
+    };
     this.renderTweets = this.renderTweets.bind(this);
   }
 
@@ -15,13 +15,13 @@ class TweetList extends React.Component {
       return <p> There are no tweets to return </p>;
     } else{
       const tweets = this.props.tweets.map((tweet) => {
-        return <Tweet key={tweet.id_str} tweet={tweet}/>
+        return <Tweet key={tweet.id_str} tweet={tweet}/>;
       });
       return (
         <div className="tweetlist">
           {tweets}
         </div>
-      )
+      );
     }
   }
   render(){
@@ -38,6 +38,6 @@ class TweetList extends React.Component {
 
   }
 
-};
+}
 
 export default TweetList;

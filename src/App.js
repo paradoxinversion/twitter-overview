@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import TweetList from './components/Tweet/TweetList';
-import UserProfile from './components/UserProfile/UserProfile';
-import UserSearchBar from './components/UserSearchBar/UserSearchBar';
-import HashtagList from './components/Hashtags/HashtagList';
+import React, { Component } from "react";
+import TweetList from "./components/Tweet/TweetList";
+import UserProfile from "./components/UserProfile/UserProfile";
+import HashtagList from "./components/Hashtags/HashtagList";
 import Header from "./components/Header/Header";
-import axios from 'axios';
-import './App.css';
-// import './bulma.css';
+import axios from "axios";
+import "./App.css";
 class App extends Component {
   constructor(props){
     super(props);
@@ -15,7 +12,7 @@ class App extends Component {
       userquery: "",
       data: [],
       pageLoaded: false
-    }
+    };
     this.searchUser = this.searchUser.bind(this);
     this.handleUserQueryUpdate = this.handleUserQueryUpdate.bind(this);
     this.renderHashTags = this.renderHashTags.bind(this);
@@ -26,7 +23,7 @@ class App extends Component {
   handleUserQueryUpdate(event){
     this.setState({
       userquery: event.target.value
-    })
+    });
   }
   async searchUser(event)  {
     event.preventDefault();
@@ -35,7 +32,6 @@ class App extends Component {
       this.setState({
         data: result.data
       });
-      console.log("data", this.state.data)
     } catch (e){
       throw e;
     }
@@ -43,7 +39,7 @@ class App extends Component {
 
   renderHashTags(){
     if (this.state.data.user){
-      return <HashtagList hashtags={this.state.data.user.most_common_hashtags} />
+      return <HashtagList hashtags={this.state.data.user.most_common_hashtags} />;
     } else {
       return null;
     }
@@ -53,12 +49,6 @@ class App extends Component {
     return (
       <div className="App">
         <Header search={this.searchUser} handleInput={this.handleUserQueryUpdate} searchQuery={this.state.userquery}/>
-
-        {/* <header className="overview-header">
-          <h1> Overview </h1>
-          <p></p>
-          <UserSearchBar search={this.searchUser} handleInput={this.handleUserQueryUpdate} searchQuery={this.state.userquery}/>
-        </header> */}
         <div className="content-wrapper">
 
           <UserProfile user={this.state.data.user} />
@@ -69,9 +59,6 @@ class App extends Component {
             {this.renderHashTags()}
           </div>
         </div>
-
-
-
       </div>
     );
   }

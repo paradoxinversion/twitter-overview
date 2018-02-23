@@ -1,7 +1,7 @@
 
-import React from 'react';
-import './UserProfile.css';
-var converter = require('number-to-words');
+import React from "react";
+import "./UserProfile.css";
+var converter = require("number-to-words");
 
 const UserProfile = (props) => {
   if (props.user){
@@ -19,13 +19,12 @@ const UserProfile = (props) => {
           <p className="profile-data-field">Following {props.user.friends_count} People</p>
           <p className="profile-data-field">{props.user.statuses_count} Tweets</p>
         </div>
-
       </div>
     );
   } else {
     return (
       null
-    )
+    );
 
   }
 
