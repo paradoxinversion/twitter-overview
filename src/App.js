@@ -50,7 +50,6 @@ class App extends Component {
       <div className="App">
         <Header search={this.searchUser} handleInput={this.handleUserQueryUpdate} searchQuery={this.state.userquery}/>
         <div className="content-wrapper">
-
           <UserProfile user={this.state.data.user} />
           <hr className="horizontal-rule"/>
           <div className="tweet-display">

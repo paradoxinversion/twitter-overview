@@ -7,7 +7,6 @@ const Header = (props) => {
       <div>
         <p className="brand"> Overview </p>
       </div>
-
       <UserSearchBar search={props.search} handleInput={props.handleInput} searchQuery={props.searchQuery}/>
     </header>
   );

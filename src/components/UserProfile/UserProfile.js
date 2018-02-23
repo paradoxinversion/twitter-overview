@@ -22,9 +22,7 @@ const UserProfile = (props) => {
       </div>
     );
   } else {
-    return (
-      null
-    );
+    return null;
 
   }
 
