@@ -7,7 +7,6 @@ class TweetList extends React.Component {
     this.state = {
       tweets: props.tweets
     };
-    this.renderTweets = this.renderTweets.bind(this);
   }
 
   renderTweets(){
@@ -28,7 +27,7 @@ class TweetList extends React.Component {
     if (this.props.tweets){
       return (
         <div className="tweetlist-container">
-          <h1> {this.props.heading} </h1>
+          <h1 className="tweetlist-heading"> {this.props.heading} </h1>
           {this.renderTweets()}
         </div>
       );

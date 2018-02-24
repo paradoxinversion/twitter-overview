@@ -1,12 +1,9 @@
-
 import React from "react";
 import Hashtag from "./Hashtag";
-var converter = require("number-to-words");
-
+import "./HashtagList.css";
 class HashtagList extends React.Component{
   constructor(props){
     super(props);
-    this.renderHashtags = this.renderHashtags.bind(this);
   }
   renderHashtags(){
     if (this.props.hashtags === 0){
@@ -25,7 +22,7 @@ class HashtagList extends React.Component{
   render(){
     if (this.props.hashtags){
       return (
-        <div>
+        <div className="hashtag-list-wrapper">
           <h1>Most Used Hashtags</h1>
           {this.renderHashtags()}
         </div>

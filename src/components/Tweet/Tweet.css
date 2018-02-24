@@ -1,16 +1,39 @@
 .tweet{
-  border: solid 1px black;
+  /* border: solid 1px black; */
   border-radius: 10px;
   padding-left: 1rem;
   padding-right: 1rem;
   background-color: white;
   margin-bottom: .5rem;
   hyphens: auto;
+  box-shadow: 0px 0px 5px grey;
 
 }
 
 .tweet-wrapper{
+  display: flex;
+  flex-direction: column;
   background: linear-gradient(#80808012, #fff);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   margin-bottom: 1.5rem;
   width: 30vw;
+  min-width: 550px;
+  /* box-shadow: 0px 0px 5px black; */
+}
+
+.tweet-metadata{
+  display: flex;
+}
+
+.tweet-thread{
+  background-color: blue;
+  color: white;
+  border-radius: 20px;
+  padding: .5rem 1rem;
+  margin-bottom: 1rem;
+}
+.reply-info-wrapper{
+  padding-left: 1rem;
+  background: linear-gradient(#80808012, #fff);
 }
