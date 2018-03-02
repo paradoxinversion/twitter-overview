@@ -1,4 +1,5 @@
 import React from "react";
+import TweetMedia from "../TweetMedia/TweetMedia";
 import "./Tweet.css";
 const Tweet = (props) => {
   let inReply;
@@ -9,11 +10,25 @@ const Tweet = (props) => {
       </div>
     );
   }
+
+  let mediaElement;
+  if (props.tweet.media){
+    const mediaItems = props.tweet.media.map((mediaObject, index) => {
+      return <TweetMedia key={index} mediaObject={mediaObject} />
+    });
+    mediaElement = (
+      <div className="tweet-media-container">
+        {mediaItems}
+      </div>
+    )
+  }
   return (
     <div className="tweet-wrapper">
       <div className="tweet">
         {inReply}
-        <p className="tweet-text"> {props.tweet.full_text} </p>
+        <div className="tweet-text" dangerouslySetInnerHTML={{__html:props.tweet.full_text.replace(/\n/g, "<br>")}} />
+        {/* <p className="tweet-text"> {props.tweet.full_text.replace(/\n/g, "<br>")} </p> */}
+        {mediaElement}
         <div className="tweet-metadata">
           <a className="tweet-thread" href={`https://twitter.com/statuses/${props.tweet.id_str}`}>Thread</a>
         </div>

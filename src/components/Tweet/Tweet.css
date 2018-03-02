@@ -37,3 +37,14 @@
   padding-left: 1rem;
   background: linear-gradient(#80808012, #fff);
 }
+
+.tweet-media-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tweet-text{
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
