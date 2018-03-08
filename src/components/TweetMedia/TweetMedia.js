@@ -1,9 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./TweetMedia.css";
-const TweeMedia = (props) => {
+
+const TweetMedia = (props) => {
   let mediaElement;
   if (props.mediaObject.type === "photo"){
-    mediaElement = <img className="tweet-media-img" src={props.mediaObject.media_url_https} />
+    mediaElement = <img className="tweet-media-img" src={props.mediaObject.media_url_https} alt="tweeted media"/>;
   } else if (props.mediaObject.type === "video"){
     mediaElement = (
       <video className="tweet-media-vid" controls>
@@ -13,7 +15,6 @@ const TweeMedia = (props) => {
   }
   return (
     <div className="tweet-media">
-
       {mediaElement}
     </div>
 
@@ -21,4 +22,7 @@ const TweeMedia = (props) => {
   );
 };
 
-export default TweeMedia;
+TweetMedia.propTypes = {
+  mediaObject: PropTypes.object.isRequired
+};
+export default TweetMedia;

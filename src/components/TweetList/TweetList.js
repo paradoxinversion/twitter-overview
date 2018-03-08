@@ -1,5 +1,6 @@
 import React from "react";
-import Tweet from "./Tweet";
+import PropTypes from "prop-types";
+import Tweet from "../Tweet/Tweet";
 import "./TweetList.css";
 class TweetList extends React.Component {
   constructor(props){
@@ -38,5 +39,10 @@ class TweetList extends React.Component {
   }
 
 }
+
+TweetList.propTypes = {
+  heading: PropTypes.string.isRequired,
+  tweets: PropTypes.array.isRequired
+};
 
 export default TweetList;

@@ -1,6 +1,6 @@
 import React from "react";
 import UserSearchBar from "../UserSearchBar/UserSearchBar";
-import TwitterLogin from "../TwitterLogin/TwitterLogin";
+import TwitterAuth from "../TwitterAuth/TwitterAuth";
 import "./Header.css";
 const Header = (props) => {
   return (
@@ -9,7 +9,7 @@ const Header = (props) => {
         <p className="brand"> Overview </p>
       </div>
       <div className="search-wrapper">
-        <TwitterLogin />
+        <TwitterAuth {...props}/>
         <UserSearchBar {...props} />
       </div>
     </header>

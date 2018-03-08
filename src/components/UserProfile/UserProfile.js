@@ -1,7 +1,6 @@
-
 import React from "react";
+import PropTypes from "prop-types";
 import "./UserProfile.css";
-var converter = require("number-to-words");
 
 const UserProfile = (props) => {
   if (props.user){
@@ -9,7 +8,7 @@ const UserProfile = (props) => {
       <div className="profile-wrapper">
         <div className="profile-content">
           <div className="profile-img-container">
-            <img className="profile-img" src={props.user.profile_image}/>
+            <img className="profile-img" src={props.user.profile_image} alt="user profile"/>
           </div>
           <div className="profile-info">
             <p className="profile-data-field profile-name">{props.user.name}</p>
@@ -33,4 +32,7 @@ const UserProfile = (props) => {
 
 };
 
+UserProfile.propTypes = {
+  user: PropTypes.object.isRequired
+};
 export default UserProfile;

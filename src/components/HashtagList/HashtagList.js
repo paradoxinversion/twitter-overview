@@ -1,10 +1,8 @@
 import React from "react";
-import Hashtag from "./Hashtag";
+import PropTypes from "prop-types";
+import Hashtag from "../Hashtag/Hashtag";
 import "./HashtagList.css";
 class HashtagList extends React.Component{
-  constructor(props){
-    super(props);
-  }
   renderHashtags(){
     if (this.props.hashtags === 0){
       return <p> There are no hashtags to return </p>;
@@ -33,4 +31,7 @@ class HashtagList extends React.Component{
   }
 }
 
+HashtagList.propTypes = {
+  hashtags: PropTypes.array.isRequired
+};
 export default HashtagList;
