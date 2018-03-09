@@ -8,6 +8,7 @@ const Hashtag = (props) => {
       <p className="hashtag-item">
         <a
           className="hashtag"
+          target="_blank"
           href={`https://twitter.com/hashtag/${props.hashtag[0]}`}>
           #{props.hashtag[0]} </a> {props.hashtag[1]} Tweet(s) with this hashtag
       </p>

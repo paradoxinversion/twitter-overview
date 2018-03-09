@@ -1,4 +1,7 @@
-.tweet {
+@import "../../scss/variables.scss";
+
+
+.tweet{
   /* border: solid 1px black; */
   border-radius: 10px;
   padding-left: 1rem;
@@ -6,11 +9,13 @@
   background-color: white;
   margin-bottom: .5rem;
   hyphens: auto;
-  box-shadow: 1px 1px 5px grey;
+  box-shadow: $shadow-standard;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
 
-.tweet-wrapper {
+}
+
+.tweet-wrapper{
   display: flex;
   flex-direction: column;
   border-top-left-radius: 10px;
@@ -18,37 +23,47 @@
   margin-bottom: 1.5rem;
   width: 30vw;
   min-width: 550px;
-  /* box-shadow: 0px 0px 5px black; */ }
+  /* box-shadow: 0px 0px 5px black; */
+}
 
-.tweet-metadata {
-  display: flex; }
+.tweet-metadata{
+  display: flex;
+}
 
-.tweet-thread {
+.tweet-thread{
   background-color: blue;
   color: white;
   border-radius: 20px;
   padding: .5rem 1rem;
-  margin-bottom: 1rem; }
-
-.reply-info-wrapper {
+  margin-bottom: 1rem;
+}
+.reply-info-wrapper{
   padding-left: 1rem;
-  background-color: grey; }
+  background-color: grey;
+}
 
-.tweet-media-container {
+.tweet-media-container{
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+}
 
-.tweet-text {
+.tweet-text{
   margin-bottom: 1rem;
   margin-top: 1rem;
-  word-wrap: break-word; }
+  word-wrap: break-word;
+}
 
-.retweet {
+.retweet{
   width: 90%;
   border-radius: 5px;
   font-size: 14px;
   padding: 0 1rem;
   align-self: center;
   margin-bottom: 1rem;
-  box-shadow: 0px 0px 5px black; }
+  box-shadow: $shadow-center;
+}
+
+.tweet > .retweet {
+
+}

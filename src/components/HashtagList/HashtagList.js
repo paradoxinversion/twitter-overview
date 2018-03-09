@@ -21,7 +21,7 @@ class HashtagList extends React.Component{
     if (this.props.hashtags){
       return (
         <div className="hashtag-list-wrapper">
-          <h1>Most Used Hashtags</h1>
+          <h1 className="hashtag-list-header">Most Used Hashtags</h1>
           {this.renderHashtags()}
         </div>
       );

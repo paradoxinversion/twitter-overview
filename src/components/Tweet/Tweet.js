@@ -9,7 +9,7 @@ class Tweet extends React.Component {
     if (this.props.tweet.in_reply_to_user_id_str != null){
       return (
         <div className="reply-info-wrapper">
-          <p> In reply to <a href={`https://twitter.com/intent/user?user_id=${this.props.tweet.in_reply_to_user_id_str}`}>{this.props.tweet.in_reply_to_screen_name}.</a> </p>
+          <p> In reply to <a target="_blank" href={`https://twitter.com/intent/user?user_id=${this.props.tweet.in_reply_to_user_id_str}`}>{this.props.tweet.in_reply_to_screen_name}.</a> </p>
         </div>
       );
     }
@@ -40,6 +40,7 @@ class Tweet extends React.Component {
       <div className="tweet-metadata">
         <a
           className="tweet-thread"
+          target="_blank"
           href={`https://twitter.com/statuses/${this.props.tweet.id_str}`}>Thread</a>
       </div>
     );

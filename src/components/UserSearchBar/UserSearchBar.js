@@ -33,13 +33,13 @@ class UserSearchBar extends React.Component {
         className="user-search-form"
         onSubmit={this.handleSubmit}>
         <input
-          className="input"
+          className="user-search-input"
           type="text"
           onChange={this.handleUserQueryUpdate}
           value={this.state.searchQuery}
           name="searchQuery" placeholder="@user" />
         <select
-          className="dropdown"
+          className="header-search-dropdown"
           name="tweetsAmt"
           value={this.state.tweetsAmt} onChange={this.handleUserQueryUpdate}>
           <option className="dropdown-item" value={25}>25</option>

@@ -44,29 +44,3 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
-
-html {
-  box-sizing: border-box; }
-
-*, *:before, *:after {
-  box-sizing: inherit; }
-
-button {
-  border: none; }
-
-.App {
-  display: flex;
-  flex-direction: column;
-  font-family: sans-serif; }
-
-.tweet-display {
-  display: flex;
-  overflow: scroll; }
-
-.content-wrapper {
-  margin-left: 2rem; }
-
-.horizontal-rule {
-  border: 0;
-  height: 1px;
-  background: #333; }

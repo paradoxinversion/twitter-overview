@@ -1,32 +1,35 @@
 import React from "react";
 import TwitterLogin from "react-twitter-auth";
 import PropTypes from "prop-types";
-
+import "./TwitterAuth.css";
 class TwitterAuth extends React.Component {
 
   renderLogoutButton(){
     return (
-      <button onClick={()=>{
-        this.props.logOut();
-      }}>Log Out</button>
+      <button
+        className="twitter-logout"
+        onClick={()=>{
+          this.props.logOut();
+        }}>Log Out</button>
     );
   }
 
   renderLogin(){
     return (
       <TwitterLogin
+        className="twitter-login"
         loginUrl="http://localhost:3001/auth/twitter"
         onFailure={this.props.onFailure}
         onSuccess={this.props.onSuccess}
-        requestTokenUrl="http://localhost:3001/auth/twitter/reverse">Test</TwitterLogin>
+        requestTokenUrl="http://localhost:3001/auth/twitter/reverse">Log in with Twitter</TwitterLogin>
     );
   }
 
   renderUserName(){
     if (this.props.isAuthenticated){
       return (
-        <div>
-          <p> Ahoy, {this.props.user.displayName}!</p>
+        <div className="logged-user-name">
+          <p className="user-greeting"> Ahoy, {this.props.user.displayName}!</p>
           {this.renderLogoutButton()}
         </div>
       );
@@ -41,7 +44,7 @@ class TwitterAuth extends React.Component {
       render = this.renderLogin();
     }
     return (
-      <div className="tweet-wrapper">
+      <div className="login-wrapper">
         {render}
       </div>
     );
