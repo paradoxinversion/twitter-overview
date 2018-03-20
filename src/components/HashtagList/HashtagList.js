@@ -21,8 +21,8 @@ class HashtagList extends React.Component{
     if (this.props.hashtags){
       return (
         <div className="hashtag-list-wrapper tab">
-          <input id={this.props.id} type="radio" name="tabs"/>
-          <label htmlFor={this.props.id}>{this.props.heading}</label>
+          <input className="tab__hidden-radio" id={this.props.id} type="radio" name="tabs"/>
+          <label className="tab__header-label" htmlFor={this.props.id}>{this.props.heading}</label>
           {/* <h1 className="hashtag-list-header">{this.props.heading}</h1> */}
           {this.renderHashtags()}
         </div>

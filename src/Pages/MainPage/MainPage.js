@@ -4,7 +4,7 @@ import TweetList from "../../components/TweetList/TweetList";
 import UserProfile from "../../components/UserProfile/UserProfile";
 import HashtagList from "../../components/HashtagList/HashtagList";
 import Header from "../../components/Header/Header";
-import TabGroup from "../../components/TabGroup/TabGroup";
+import TweetSearch from "../../components/TweetSearch/TweetSearch";
 import axios from "axios";
 
 class MainPage extends Component {
@@ -103,6 +103,7 @@ class MainPage extends Component {
       return(
         <div className="tweet-display ">
           <div className="tab-group">
+            <TweetSearch tweets={this.state.data.tweetData} />
             <TweetList
               heading="Latest"
               id="latest-tweets"

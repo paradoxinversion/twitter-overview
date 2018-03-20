@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Tweet from "../Tweet/Tweet";
+import filterTweetsByWord from "../../utilityFunctions/filterTweetsByWord";
 import "./TweetList.css";
+
 class TweetList extends React.Component {
   constructor(props){
     super(props);
@@ -16,9 +18,13 @@ class TweetList extends React.Component {
     if (this.props.tweets.length === 0){
       return <p> There are no tweets to return </p>;
     } else{
-      // console.log(this.props)
+      const processedIds = [];
       const tweets = this.props.tweets.map((tweet) => {
-        return <Tweet key={tweet.id_str} tweet={tweet}/>;
+        if (!processedIds.includes(tweet.id_str)){
+          processedIds.push(tweet.id_str);
+          return <Tweet key={tweet.id_str} tweet={tweet}/>;
+        }
+        
       });
       return (
         <div className="tweetlist tab-content">
@@ -37,13 +43,9 @@ class TweetList extends React.Component {
     if (this.props.tweets){
       return (
         <div className="tweetlist-container tab">
-
-          {/* <button className="tweetlist-heading" onClick={this.toggleList}> {this.props.heading} </button> */}
-          <input id={this.props.id} type="radio" name="tabs"/>
-          <label htmlFor={this.props.id}>{this.props.heading}</label>
-          {/* {this.state.showList ? this.renderTweets() : null} */}
+          <input className="tab__hidden-radio" id={this.props.id} type="radio" name="tabs"/>
+          <label className="tab__header-label" htmlFor={this.props.id}>{this.props.heading}</label>
           {this.renderTweets()}
-
         </div>
       );
     } else {
