@@ -4,6 +4,7 @@ import TweetList from "../../components/TweetList/TweetList";
 import UserProfile from "../../components/UserProfile/UserProfile";
 import HashtagList from "../../components/HashtagList/HashtagList";
 import Header from "../../components/Header/Header";
+import TabGroup from "../../components/TabGroup/TabGroup";
 import axios from "axios";
 
 class MainPage extends Component {
@@ -41,7 +42,7 @@ class MainPage extends Component {
 
   renderHashTags(){
     if (this.state.data){
-      return <HashtagList hashtags={this.state.data.user.most_common_hashtags} />;
+      return <HashtagList heading="Most used Hashtags" id="most-used-hashtags" hashtags={this.state.data.user.most_common_hashtags} />;
     } else {
       return null;
     }
@@ -80,17 +81,40 @@ class MainPage extends Component {
     }
   }
 
+  renderTweetList(tweets, heading, id){
+    return (
+      <TweetList
+        heading={heading}
+        id={id}
+        tweets={tweets} />
+    )
+  }
+
   renderTweetDisplay(){
+    let tweetLists;
+    if (this.state.data){
+      tweetLists = [
+        this.renderTweetList(this.state.data.tweetData, "Latest", "latest-tweets"),
+        this.renderTweetList(this.state.data.topTweetsByRT, "Top Tweets", "top-tweets")
+      ];
+    }
+
     if (this.state.data){
       return(
-        <div className="tweet-display">
-          <TweetList
-            heading="Latest"
-            tweets={this.state.data.tweetData} />
-          <TweetList
-            heading="Top Tweets"
-            tweets={this.state.data.topTweets} />
-          {this.renderHashTags()}
+        <div className="tweet-display ">
+          <div className="tab-group">
+            <TweetList
+              heading="Latest"
+              id="latest-tweets"
+              tweets={this.state.data.tweetData} />
+            <TweetList
+              heading="Top Tweets"
+              id="top-tweets"
+              tweets={this.state.data.topTweetsByRT} />
+            {this.renderHashTags()}
+          </div>
+          {/* <TabGroup tabs={tweetLists} /> */}
+
         </div>
       );
     } else {
@@ -125,7 +149,7 @@ class MainPage extends Component {
 
   render() {
     return (
-      <div className="MainPage">
+      <div className="main-page">
         <Header
           {...this.props}
           search={this.searchUser}/>

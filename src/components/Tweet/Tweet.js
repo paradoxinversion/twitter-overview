@@ -42,22 +42,35 @@ class Tweet extends React.Component {
           className="tweet-thread"
           target="_blank"
           href={`https://twitter.com/statuses/${this.props.tweet.id_str}`}>Thread</a>
+        <p className="tweet-post-timestamp"> Posted {this.props.tweet.created_at} </p>
       </div>
     );
   }
 
   renderTweet(){
     let retweetElement;
-    if (this.props.tweet.retweet){
-      retweetElement = (
-        <div className="retweet">
-          {this.renderReply()}
-          {this.renderTweetText(this.props.tweet.retweet.full_text.replace(/\n/g, "<br>"))}
-          {this.renderMedia()}
-          {this.renderMetadata()}
-        </div>
-      );
+    if(this.props.tweet.quote_retweet){
+      if (this.props.tweet.quote_retweet.retweet){
+        retweetElement = (
+          <div className="retweet">
+            {this.renderReply()}
+            {this.renderTweetText(this.props.tweet.quote_retweet.retweet.full_text.replace(/\n/g, "<br>"))}
+            {this.renderMedia()}
+            {this.renderMetadata()}
+          </div>
+        );
+      } else if (this.props.tweet.quote_retweet.quote){
+        retweetElement = (
+          <div className="retweet">
+            {this.renderReply()}
+            {this.renderTweetText(this.props.tweet.quote_retweet.quote.full_text.replace(/\n/g, "<br>"))}
+            {this.renderMedia()}
+            {this.renderMetadata()}
+          </div>
+        )
+      }
     }
+
     return (
       <div className="tweet">
         {this.renderReply()}

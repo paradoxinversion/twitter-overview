@@ -11,7 +11,7 @@ class HashtagList extends React.Component{
         return <Hashtag key={hashtag[0]} hashtag={hashtag}/>;
       });
       return (
-        <div className="hashtag-list">
+        <div className="hashtag-list tab-content">
           {hashtags}
         </div>
       );
@@ -20,8 +20,10 @@ class HashtagList extends React.Component{
   render(){
     if (this.props.hashtags){
       return (
-        <div className="hashtag-list-wrapper">
-          <h1 className="hashtag-list-header">Most Used Hashtags</h1>
+        <div className="hashtag-list-wrapper tab">
+          <input id={this.props.id} type="radio" name="tabs"/>
+          <label htmlFor={this.props.id}>{this.props.heading}</label>
+          {/* <h1 className="hashtag-list-header">{this.props.heading}</h1> */}
           {this.renderHashtags()}
         </div>
       );

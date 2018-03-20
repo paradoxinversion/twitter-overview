@@ -6,30 +6,44 @@ class TweetList extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      tweets: props.tweets
+      tweets: props.tweets,
+      showList: false
     };
+    this.toggleList = this.toggleList.bind(this);
   }
 
   renderTweets(){
     if (this.props.tweets.length === 0){
       return <p> There are no tweets to return </p>;
     } else{
+      // console.log(this.props)
       const tweets = this.props.tweets.map((tweet) => {
         return <Tweet key={tweet.id_str} tweet={tweet}/>;
       });
       return (
-        <div className="tweetlist">
+        <div className="tweetlist tab-content">
           {tweets}
         </div>
       );
     }
   }
+
+  toggleList(){
+    this.setState({
+      showList: !this.state.showList
+    });
+  }
   render(){
     if (this.props.tweets){
       return (
-        <div className="tweetlist-container">
-          <h1 className="tweetlist-heading"> {this.props.heading} </h1>
+        <div className="tweetlist-container tab">
+
+          {/* <button className="tweetlist-heading" onClick={this.toggleList}> {this.props.heading} </button> */}
+          <input id={this.props.id} type="radio" name="tabs"/>
+          <label htmlFor={this.props.id}>{this.props.heading}</label>
+          {/* {this.state.showList ? this.renderTweets() : null} */}
           {this.renderTweets()}
+
         </div>
       );
     } else {

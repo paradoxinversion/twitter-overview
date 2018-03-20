@@ -18,7 +18,8 @@ button{
 
 .tweet-display{
   display: flex;
-  overflow: scroll;
+  flex-direction: column;
+  // overflow: scroll;
 }
 
 .content-wrapper{
@@ -26,7 +27,55 @@ button{
 }
 
 .horizontal-rule {
-    border: 0;
-    height: 1px;
-    background: #333;
+  border: 0;
+  height: 1px;
+  background: #333;
+}
+
+.tab-group{
+  margin: 0 auto;
+  max-width: 40em;
+  width: 100%;
+}
+
+.tab{
+  position: relative;
+  width: 100%;
+}
+.tab input {
+  position:absolute;
+  left: 0;
+  top: 0;
+  z-index: -999;
+}
+
+.tab label{
+  background: red;
+  color: white;
+  display: block;
+  font-weight: bold;
+  line-height: 3;
+  padding-left: .5em;
+  margin-bottom: .5em;
+  transition: letter-spacing .55s;
+}
+
+.tab input:focus + label,
+.tab label:hover {
+  background: blue;
+  letter-spacing: 1px;
+}
+
+.tab-content{
+  max-height: 0;
+  overflow-y: scroll;
+  transition: all .35s;
+}
+
+.tab-content {
+  margin: 1em 0;
+}
+
+.tab input:checked ~ .tab-content{
+  max-height: 100vh;
 }
