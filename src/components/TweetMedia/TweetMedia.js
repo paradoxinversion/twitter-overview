@@ -12,6 +12,13 @@ const TweetMedia = (props) => {
         <source src={props.mediaObject.variants[0].url } type={props.mediaObject.variants[0].content_type}/>
       </video>
     );
+  } else if (props.mediaObject.type === "gif"){
+    // mediaElement = <img className="tweet-media-img" src={props.mediaObject.url} alt="tweeted media"/>;
+    mediaElement = (
+      <video className="tweet-media-vid" controls>
+        <source src={props.mediaObject.url } type="video/mp4"/>
+      </video>
+    );
   }
   return (
     <div className="tweet-media">

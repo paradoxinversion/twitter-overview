@@ -42,7 +42,7 @@ class MainPage extends Component {
 
   renderHashTags(){
     if (this.state.data){
-      return <HashtagList heading="Most used Hashtags" id="most-used-hashtags" hashtags={this.state.data.user.most_common_hashtags} />;
+      return <HashtagList heading="Most used Hashtags" id="most-used-hashtags" hashtags={this.state.data.mostCommonHashtags} />;
     } else {
       return null;
     }
@@ -94,7 +94,7 @@ class MainPage extends Component {
     let tweetLists;
     if (this.state.data){
       tweetLists = [
-        this.renderTweetList(this.state.data.tweetData, "Latest", "latest-tweets"),
+        this.renderTweetList(this.state.data.processedTweets, "Latest", "latest-tweets"),
         this.renderTweetList(this.state.data.topTweetsByRT, "Top Tweets", "top-tweets")
       ];
     }
@@ -103,15 +103,19 @@ class MainPage extends Component {
       return(
         <div className="tweet-display ">
           <div className="tab-group">
-            <TweetSearch tweets={this.state.data.tweetData} />
+            <TweetSearch
+              tweets={this.state.data.processedTweets}
+              user={this.state.data.user} />
             <TweetList
               heading="Latest"
               id="latest-tweets"
-              tweets={this.state.data.tweetData} />
+              tweets={this.state.data.processedTweets}
+              user={this.state.data.user} />
             <TweetList
               heading="Top Tweets"
               id="top-tweets"
-              tweets={this.state.data.topTweetsByRT} />
+              tweets={this.state.data.topTweetsByRT}
+              user={this.state.data.user} />
             {this.renderHashTags()}
           </div>
           {/* <TabGroup tabs={tweetLists} /> */}

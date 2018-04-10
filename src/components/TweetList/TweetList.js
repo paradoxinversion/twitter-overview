@@ -22,9 +22,9 @@ class TweetList extends React.Component {
       const tweets = this.props.tweets.map((tweet) => {
         if (!processedIds.includes(tweet.id_str)){
           processedIds.push(tweet.id_str);
-          return <Tweet key={tweet.id_str} tweet={tweet}/>;
+          return <Tweet key={tweet.id_str} tweet={tweet} user={this.props.user}/>;
         }
-        
+
       });
       return (
         <div className="tweetlist tab-content">
@@ -58,7 +58,8 @@ class TweetList extends React.Component {
 
 TweetList.propTypes = {
   heading: PropTypes.string.isRequired,
-  tweets: PropTypes.array.isRequired
+  tweets: PropTypes.array.isRequired,
+  user: PropTypes.object.isRequired
 };
 
 export default TweetList;

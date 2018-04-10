@@ -26,9 +26,9 @@ class TweetSearch extends React.Component{
       const tweets = filterTweetsByWord(this.props.tweets, this.state.searchQuery).map((tweet) => {
         if (!processedIds.includes(tweet.id_str)){
           processedIds.push(tweet.id_str);
-          return <Tweet key={tweet.id_str} tweet={tweet}/>;
+          return <Tweet key={tweet.id_str} tweet={tweet} user={this.props.user}/>;
         }
-        
+
       });
       console.log(tweets);
       return (

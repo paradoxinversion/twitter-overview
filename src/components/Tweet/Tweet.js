@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import TweetMedia from "../TweetMedia/TweetMedia";
+import TweetText from "../TweetText/TweetText";
+import TweetMediaWrapper from "../TweetMediaWrapper/TweetMediaWrapper";
 import "./Tweet.css";
 
 class Tweet extends React.Component {
@@ -54,28 +56,40 @@ class Tweet extends React.Component {
         retweetElement = (
           <div className="retweet">
             {this.renderReply()}
-            {this.renderTweetText(this.props.tweet.quote_retweet.retweet.full_text.replace(/\n/g, "<br>"))}
-            {this.renderMedia()}
-            {this.renderMetadata()}
+            <TweetText tweet={this.props.tweet.quote_retweet.retweet} />
+            <TweetMediaWrapper media={this.props.tweet.quote_retweet.media} />
+            {/* {this.renderMetadata()} */}
           </div>
         );
       } else if (this.props.tweet.quote_retweet.quote){
         retweetElement = (
           <div className="retweet">
             {this.renderReply()}
-            {this.renderTweetText(this.props.tweet.quote_retweet.quote.full_text.replace(/\n/g, "<br>"))}
-            {this.renderMedia()}
-            {this.renderMetadata()}
+            <TweetText tweet={this.props.tweet.quote_retweet.quote} />
+            <TweetMediaWrapper media={this.props.tweet.quote_retweet.media} />
+            {/* {this.renderMetadata()} */}
           </div>
-        )
+        );
       }
     }
 
     return (
       <div className="tweet">
         {this.renderReply()}
-        {this.renderTweetText(this.props.tweet.full_text.replace(/\n/g, "<br>"))}
-        {this.renderMedia()}
+        {
+          // retweetElement ?
+          // <p className="tweet__retweeted-string">{this.props.user.name} Retweeted </p> :
+          // <TweetText text={this.props.tweet.full_text} />        
+          retweetElement ?
+          <div>
+            <p className="tweet__retweeted-string">{this.props.user.name} Retweeted </p>
+            <TweetText tweet={this.props.tweet} />      
+          </div>
+           :
+          <TweetText tweet={this.props.tweet} />        
+        }
+
+        <TweetMediaWrapper media={this.props.tweet.media} />
         {retweetElement}
         {this.renderMetadata()}
       </div>
@@ -85,7 +99,12 @@ class Tweet extends React.Component {
   render(){
     return (
       <div className="tweet-wrapper">
-        {this.renderTweet()}
+        {
+          this.props.tweet && this.props.user ?
+          this.renderTweet() :
+          <p>Waiting for props</p>
+        }
+
       </div>
     );
   }

@@ -63,7 +63,7 @@ button{
 
 .tab input:focus + label,
 .tab label:hover {
-  background: blue;
+  background: #d01313;
   letter-spacing: 1px;
 }
 
@@ -78,5 +78,5 @@ button{
 }
 
 .tab input:checked ~ .tab-content{
-  max-height: 100vh;
+  max-height: 75vh;
 }
