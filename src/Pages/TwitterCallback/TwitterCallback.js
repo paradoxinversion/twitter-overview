@@ -18,7 +18,8 @@ class TwitterCallback extends Component {
       tokenAndVerifier[twitterResponseData[0]] = twitterResponseData[1];
     });
     this.props.setAuthenticationToken(tokenAndVerifier);
-    await axios.get("http://localhost:3001/auth/twitter/callback",{withCredentials: true});
+    const uri = (process.env.NODE_ENV === "development") ? "http://localhost:3001/auth/twitter/callback" :"http://siphonr.herokuapp.com/twitter/callback";
+    await axios.get(uri,{withCredentials: true});
   }
   render() {
 
