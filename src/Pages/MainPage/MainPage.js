@@ -31,7 +31,8 @@ class MainPage extends Component {
     };
 
     try{
-      const result = await axios.get(`/search`, config);
+      const uri = (process.env.NODE_ENV === "development") ? "/search" : "http://siphonr.herokuapp.com/search";
+      const result = await axios.get(uri, config);
       this.setState({
         data: result.data
       });
