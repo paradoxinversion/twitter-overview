@@ -21,7 +21,7 @@ class TwitterAuth extends React.Component {
         loginUrl= {(process.env.NODE_ENV === "development") ? "http://localhost:3001/auth/twitter" : "http://siphonr.herokuapp.com/auth/twitter"}
         onFailure={this.props.onFailure}
         onSuccess={this.props.onSuccess}
-        requestTokenUrl={(process.env.NODE_ENV === "development") ? "http://localhost:3001/auth/twitter/reverse" : "http://siphonr.herokuapp.com/twitter/reverse"}>Log in with Twitter</TwitterLogin>
+        requestTokenUrl={(process.env.NODE_ENV === "development") ? "http://localhost:3001/auth/twitter/reverse" : "http://siphonr.herokuapp.com/auth/twitter/reverse"}>Log in with Twitter</TwitterLogin>
     );
   }
 
